@@ -7,21 +7,36 @@ public class Tile: MonoBehaviour {
 	// Use this for initialization
 	void Start () 
 	{
-		Debug.Log(string.Format("Adjacent Fossils: {0}",m_numberAdjacentFossils));
+		TextMesh[] textMeshes = gameObject.GetComponentsInChildren<TextMesh>();
+				
+		foreach(TextMesh t in textMeshes)
+		{
+			if(t.tag == "fText")
+			{
+				t.text = string.Format("{0}",m_numberAdjacentFossils);
+			}
+			else
+			{
+				t.text = string.Format("{0}",m_numberAdjacentTraps);
+			}
 
-		if(TileValue > 0)
-		{
-			renderer.material.color = Color.green;
 		}
-	 	else if(TileValue < 0)
-		{
-			renderer.material.color = Color.red;
-		}
+
+
+//		if(IsFossil())
+//		{
+//			renderer.material.color = Color.green;
+//		}
+//	 	else if(IsTrap())
+//		{
+//			renderer.material.color = Color.red;
+//		}
 
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void Update () 
+	{
 	
 	}
 
@@ -33,11 +48,11 @@ public class Tile: MonoBehaviour {
 			m_AdjacentTiles = new List<Tile>();
 		}
 
-		if(newTile.TileValue > 0)
+		if(newTile.IsFossil())
 		{
 			m_numberAdjacentFossils++;
 		}
-		else if(newTile.TileValue < 0)
+		else if(newTile.IsTrap())
 		{
 			m_numberAdjacentTraps++;
 		}
@@ -45,6 +60,15 @@ public class Tile: MonoBehaviour {
 		m_AdjacentTiles.Add(newTile);
 	}
 
+	public bool IsTrap()
+	{
+		return TileValue < 0;
+	}
+
+	public bool IsFossil()
+	{
+		return TileValue > 0;
+	}
 
 	public int TileValue
 	{
