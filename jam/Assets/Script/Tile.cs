@@ -9,6 +9,14 @@ public class Tile: MonoBehaviour {
 	{
 		Debug.Log(string.Format("Adjacent Fossils: {0}",m_numberAdjacentFossils));
 
+		if(TileValue > 0)
+		{
+			renderer.material.color = Color.green;
+		}
+	 	else if(TileValue < 0)
+		{
+			renderer.material.color = Color.red;
+		}
 
 	}
 	

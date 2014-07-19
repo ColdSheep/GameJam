@@ -89,9 +89,9 @@ public class GameManager : MonoBehaviour {
 
 	}
 	
-	const float PERCENT_FOSSIL = 0.4f; //Percent chance of a Treasure tile being created
+	const float PERCENT_FOSSIL = 0.2f; //Percent chance of a Treasure tile being created
 	const float PERCENT_TRAP = 0.2f; //Percent chance of a Trap tile being created
-	const float PERCENT_EMPTY = 0.4f; //Percent chance of an Empty tile being created
+	const float PERCENT_EMPTY = 0.6f; //Percent chance of an Empty tile being created
 
 	const int FOSSIL_VALUE = 20;
 	const int TRAP_VALUE = -10;
