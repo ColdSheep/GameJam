@@ -2,12 +2,14 @@
 using System.Collections;
 using System.Collections.Generic;
 
-public class Tile {
+public class Tile: MonoBehaviour {
 
 	// Use this for initialization
 	void Start () 
 	{
-		m_AdjacentTiles = new List<GameObject>();
+		Debug.Log(string.Format("Adjacent Fossils: {0}",m_numberAdjacentFossils));
+
+
 	}
 	
 	// Update is called once per frame
@@ -15,10 +17,42 @@ public class Tile {
 	
 	}
 
-	public void AddAdjacentTile(GameObject newTile)
+	public void AddAdjacentTile(Tile newTile)
 	{
+
+		if(m_AdjacentTiles == null)
+		{
+			m_AdjacentTiles = new List<Tile>();
+		}
+
+		if(newTile.TileValue > 0)
+		{
+			m_numberAdjacentFossils++;
+		}
+		else if(newTile.TileValue < 0)
+		{
+			m_numberAdjacentTraps++;
+		}
+
 		m_AdjacentTiles.Add(newTile);
 	}
-	
-	private List <GameObject> m_AdjacentTiles;
+
+
+	public int TileValue
+	{
+		get
+		{
+			return m_tileValue;
+		}
+
+		set
+		{
+			m_tileValue = value; 
+		}
+	}
+
+	private List <Tile> m_AdjacentTiles;
+	private int m_tileValue = 0;
+	private int m_numberAdjacentTraps = 0;
+	private int m_numberAdjacentFossils = 0;
 }
