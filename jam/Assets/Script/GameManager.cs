@@ -8,7 +8,7 @@ public class GameManager : MonoBehaviour {
 	void Start () 
 	{
 		Debug.Log(string.Format("Create grid with pergentages: Fossil - {0}, Trap - {1}, Empty - {2}", PERCENT_FOSSIL, PERCENT_TRAP, PERCENT_EMPTY));
-		BuildGrid(5, 5, 1.0f);
+		BuildGrid(10, 10, 1.0f);
 	}
 
 	// Update is called once per frame
@@ -84,7 +84,7 @@ public class GameManager : MonoBehaviour {
 			}
 
 			x = 0.0f;
-			y += tileSize / 2.0f;
+			y -= tileSize / 2.0f;
 		}
 
 	}
