@@ -7,7 +7,15 @@ public class GameManager : MonoBehaviour {
 	// Use this for initialization
 	void Start () 
 	{
+		float x = 0.0f;
+		float y = 0.0f;
+		float z = 0.0f;
+
 		Debug.Log(string.Format("Create grid with pergentages: Fossil - {0}, Trap - {1}, Empty - {2}", PERCENT_FOSSIL, PERCENT_TRAP, PERCENT_EMPTY));
+
+		GameObject playerQuad = (GameObject)Instantiate(Resources.Load("PlayerQuad"));
+		playerQuad.transform.position = new Vector3(x,y+3,z);
+
 		BuildGrid(10, 10, 2.0f);
 	}
 
