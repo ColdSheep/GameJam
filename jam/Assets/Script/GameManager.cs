@@ -80,11 +80,11 @@ public class GameManager : MonoBehaviour {
 				}
 				
 				aTile.transform.position = new Vector3(x,y,z);
-				x += tileSize / 2.0f;
+				x += tileSize;
 			}
 
 			x = 0.0f;
-			y -= tileSize / 2.0f;
+			y -= tileSize;
 		}
 
 	}
