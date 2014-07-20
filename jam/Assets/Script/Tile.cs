@@ -32,6 +32,10 @@ public class Tile: MonoBehaviour {
 
 	public void AddAdjacentTile(Tile newTile)
 	{
+		if(newTile.gameObject.tag != "dirtTile")
+		{
+			return;
+		}
 
 		if(m_AdjacentTiles == null)
 		{

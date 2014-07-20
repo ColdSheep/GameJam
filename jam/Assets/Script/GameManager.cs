@@ -39,12 +39,22 @@ public class GameManager : MonoBehaviour {
 		{
 			for(int j = 0; j < width; ++j)
 			{
-				GameObject aTile = (GameObject)Instantiate(Resources.Load("Tile"));
+				GameObject aTile; 
+
+				if(j == 0 || j == (width-1) || i == (height-1))
+				{
+					aTile = (GameObject)Instantiate(Resources.Load("BorderTile"));
+				}
+				else
+				{
+					aTile = (GameObject)Instantiate(Resources.Load("Tile"));
+				}
+
 				Tile tileScript = (Tile)aTile.GetComponent("Tile");
 
 				m_gameTiles.Add(tileScript);
 
-				if(tileScript)
+				if(tileScript.gameObject.tag == "dirtTile")
 				{
 
 					//Determine randomly what kind of tile it is
