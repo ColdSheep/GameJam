@@ -82,6 +82,8 @@ public class Player : MonoBehaviour {
 			Tile h = (Tile)hit.collider.gameObject.GetComponent("Tile");
 			m_currentBudget += h.TileValue - DIG_COST;
 			Debug.Log(h.TileValue - DIG_COST);
+
+			audio.Play();
 			if(h.TileValue > 0)
 			{
 				//Display that you recieved a fossil
@@ -96,7 +98,8 @@ public class Player : MonoBehaviour {
 				hit.collider.gameObject.renderer.material.color = Color.red;
 			}
 
-			hit.collider.gameObject.transform.position = hit.collider.gameObject.transform.position + new Vector3(0,0,2.2f);
+			h.ClearText();
+			hit.collider.gameObject.transform.position = hit.collider.gameObject.transform.position + new Vector3(0,0,2f);
 			//Destroy(hit.collider.gameObject);
 		}
 	}
@@ -133,7 +136,7 @@ public class Player : MonoBehaviour {
 		{
 			InfoSphere info = (InfoSphere)infoSphere.GetComponent("InfoSphere");
 			
-			info.m_finalScore = m_numFossilsFound;
+			info.m_finalScore = (m_numFossilsFound * 200) + m_currentBudget;
 		}
 		
 		Application.LoadLevel("GameOverScreen");

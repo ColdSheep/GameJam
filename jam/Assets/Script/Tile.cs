@@ -77,6 +77,16 @@ public class Tile: MonoBehaviour {
 		}
 	}
 
+	public void ClearText()
+	{
+		TextMesh[] textMeshes = gameObject.GetComponentsInChildren<TextMesh>();
+		
+		foreach(TextMesh t in textMeshes)
+		{
+			t.text = "";
+		}
+	}
+
 	private List <Tile> m_AdjacentTiles;
 	private int m_tileValue = 0;
 	private int m_numberAdjacentTraps = 0;

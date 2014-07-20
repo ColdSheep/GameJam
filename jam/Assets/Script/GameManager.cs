@@ -16,7 +16,7 @@ public class GameManager : MonoBehaviour {
 		GameObject playerQuad = (GameObject)Instantiate(Resources.Load("PlayerQuad"));
 		playerQuad.transform.position = new Vector3(x,y+3,z-1);
 
-		BuildGrid(11, 11, 2.0f);
+		BuildGrid(15, 11, 2.0f);
 	}
 
 	// Update is called once per frame
