@@ -79,10 +79,9 @@ public class Player : MonoBehaviour {
 	{
 		if(hit.collider.gameObject.tag == "dirtTile")
 		{
-			m_currentBudget -= DIG_COST;
 			Tile h = (Tile)hit.collider.gameObject.GetComponent("Tile");
-			m_currentBudget += h.TileValue;
-
+			m_currentBudget += h.TileValue - DIG_COST;
+			Debug.Log(h.TileValue - DIG_COST);
 			if(h.TileValue > 0)
 			{
 				//Display that you recieved a fossil
@@ -132,7 +131,7 @@ public class Player : MonoBehaviour {
 	private CharacterController m_controller;
 	private Vector3 m_moveDirection = Vector3.zero;
  
-	public int DIG_COST = 150;
+	public int DIG_COST = 100;
 
 	public float m_speed = 4.0f;
 	public float m_gravity = 20.0f;

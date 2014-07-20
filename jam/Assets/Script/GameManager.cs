@@ -11,7 +11,7 @@ public class GameManager : MonoBehaviour {
 		float y = 0.0f;
 		float z = 0.0f;
 
-		Debug.Log(string.Format("Create grid with pergentages: Fossil - {0}, Trap - {1}, Empty - {2}", PERCENT_FOSSIL, PERCENT_TRAP, PERCENT_EMPTY));
+		Debug.Log(string.Format("Create grid with percentages: Fossil - {0}, Trap - {1}, Empty - {2}", PERCENT_FOSSIL, PERCENT_TRAP, PERCENT_EMPTY));
 
 		GameObject playerQuad = (GameObject)Instantiate(Resources.Load("PlayerQuad"));
 		playerQuad.transform.position = new Vector3(x,y+3,z-1);
@@ -88,7 +88,21 @@ public class GameManager : MonoBehaviour {
 					{
 						Tile aboveTile = (Tile)m_gameTiles[(i-1) * width + j];
 						tileScript.AddAdjacentTile(aboveTile); //Link the tile above the current tile
-						aboveTile.AddAdjacentTile(tileScript); 
+						aboveTile.AddAdjacentTile(tileScript);
+
+						if(j > 0)
+						{
+							Tile aboveLeftTile = (Tile)m_gameTiles[(i-1) * width + (j-1)];
+							tileScript.AddAdjacentTile(aboveLeftTile); //Link the tile above the current tile
+							aboveLeftTile.AddAdjacentTile(tileScript);
+						}
+
+						if(j < width-1)
+						{
+							Tile aboveRightTile = (Tile)m_gameTiles[(i-1) * width + (j+1)];
+							tileScript.AddAdjacentTile(aboveRightTile); //Link the tile above the current tile
+							aboveRightTile.AddAdjacentTile(tileScript);
+						}
 					}
 
 					if(j > 0)
@@ -116,8 +130,8 @@ public class GameManager : MonoBehaviour {
 	}
 	
 	const float PERCENT_FOSSIL = 0.4f; //Percent chance of a Treasure tile being created
-	const float PERCENT_TRAP = 0.4f; //Percent chance of a Trap tile being created
-	const float PERCENT_EMPTY = 0.2f; //Percent chance of an Empty tile being created
+	const float PERCENT_TRAP = 0.0f; //Percent chance of a Trap tile being created
+	const float PERCENT_EMPTY = 0.6f; //Percent chance of an Empty tile being created
 
 	const int FOSSIL_VALUE = 200;
 	const int TRAP_VALUE = -100;
