@@ -13,6 +13,7 @@ public class Player : MonoBehaviour {
 	void Update () 
 	{
 
+
 		if( m_controller.isGrounded )
 		{
 			m_moveDirection = new Vector3 ( Input.GetAxis("Horizontal"), 0.0f, 0.0f);
@@ -92,6 +93,12 @@ public class Player : MonoBehaviour {
 	void OnGUI()
 	{
 		GUI.Label(new Rect(10,10,140,40), string.Format("Budget: ${0}",m_currentBudget));
+
+		if(GUI.Button(new Rect(100,10,100,40), "End Game"))
+		{
+			Debug.Log("HI");
+		}
+
 	}
 
 	private CharacterController m_controller;
