@@ -8,60 +8,62 @@ public class Player : MonoBehaviour {
 	{
 		m_controller = (CharacterController)this.GetComponent("CharacterController");
 	}
-	
+
+	bool IsGameOver()
+	{
+		return m_currentBudget <= 0;
+	}
+
 	// Update is called once per frame
 	void Update () 
 	{
 
-		if(m_currentBudget <= 0)
+		if(!IsGameOver())
 		{
-			//Game Over
-			Application.LoadLevel("GameScene");
-		}
-
-		if( m_controller.isGrounded )
-		{
-			m_moveDirection = new Vector3 ( Input.GetAxis("Horizontal"), 0.0f, 0.0f);
-			m_moveDirection = transform.TransformDirection( m_moveDirection);
-			m_moveDirection *= m_speed;
-
-			//Check to see if the player wants to dig
-		}
-		else
-		{
-			m_moveDirection.x = Input.GetAxis( "Horizontal" );
-			m_moveDirection.x *= m_speed;
-		}
-
-		RaycastHit hit = new RaycastHit();
-
-		if(Input.GetKeyDown(KeyCode.E))
-		{
-			Vector3 direction = new Vector3(1.0f,0.0f, 0.0f);
-
-			if( GetAdjacentBlock(direction, out hit) )
+			if( m_controller.isGrounded )
 			{
-				ProcessHit(hit);
+				m_moveDirection = new Vector3 ( Input.GetAxis("Horizontal"), 0.0f, 0.0f);
+				m_moveDirection = transform.TransformDirection( m_moveDirection);
+				m_moveDirection *= m_speed;
+
+				//Check to see if the player wants to dig
 			}
-		}
-
-		if(Input.GetKeyDown(KeyCode.Q))
-		{
-			Vector3 direction = new Vector3(-1.0f,0.0f, 0.0f);
-			
-			if( GetAdjacentBlock(direction, out hit) )
+			else
 			{
-				ProcessHit(hit);
+				m_moveDirection.x = Input.GetAxis( "Horizontal" );
+				m_moveDirection.x *= m_speed;
 			}
-		}
 
-		if(Input.GetKeyDown(KeyCode.S))
-		{
-			Vector3 direction = new Vector3(0.0f,-1.0f, 0.0f);
-			
-			if( GetAdjacentBlock(direction, out hit) )
+			RaycastHit hit = new RaycastHit();
+
+			if(Input.GetKeyDown(KeyCode.E))
 			{
-				ProcessHit(hit);
+				Vector3 direction = new Vector3(1.0f,0.0f, 0.0f);
+
+				if( GetAdjacentBlock(direction, out hit) )
+				{
+					ProcessHit(hit);
+				}
+			}
+
+			if(Input.GetKeyDown(KeyCode.Q))
+			{
+				Vector3 direction = new Vector3(-1.0f,0.0f, 0.0f);
+				
+				if( GetAdjacentBlock(direction, out hit) )
+				{
+					ProcessHit(hit);
+				}
+			}
+
+			if(Input.GetKeyDown(KeyCode.S))
+			{
+				Vector3 direction = new Vector3(0.0f,-1.0f, 0.0f);
+				
+				if( GetAdjacentBlock(direction, out hit) )
+				{
+					ProcessHit(hit);
+				}
 			}
 		}
 
@@ -108,17 +110,24 @@ public class Player : MonoBehaviour {
 
 	void OnGUI()
 	{
-		GUI.Label(new Rect(10,10,140,40), string.Format("Budget: ${0}",m_currentBudget));
+		if(IsGameOver())
+		{
+
+		}
+		else
+		{
+			GUI.Label(new Rect(10,10,140,40), string.Format("Budget: ${0}",m_currentBudget));
+		}
 
 		if(GUI.Button(new Rect(100,10,100,40), "Reset Game"))
 		{
 			Application.LoadLevel("GameScene");
 		}
-
 	}
 
 	private CharacterController m_controller;
 	private Vector3 m_moveDirection = Vector3.zero;
+ 
 	public int DIG_COST = 150;
 
 	public float m_speed = 4.0f;
