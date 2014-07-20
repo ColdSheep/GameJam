@@ -13,6 +13,11 @@ public class Player : MonoBehaviour {
 	void Update () 
 	{
 
+		if(m_currentBudget <= 0)
+		{
+			//Game Over
+			Application.LoadLevel("GameScene");
+		}
 
 		if( m_controller.isGrounded )
 		{
@@ -72,6 +77,17 @@ public class Player : MonoBehaviour {
 			Tile h = (Tile)hit.collider.gameObject.GetComponent("Tile");
 			m_currentBudget += h.TileValue;
 
+			if(h.TileValue > 0)
+			{
+				//Display that you recieved a fossil
+				hit.collider.gameObject.renderer.material.color = Color.green;
+			}
+			else if(h.TileValue < 0)
+			{
+				//Display that you recieved a trap
+				hit.collider.gameObject.renderer.material.color = Color.red;
+			}
+
 			hit.collider.gameObject.transform.position = hit.collider.gameObject.transform.position + new Vector3(0,0,2.2f);
 			//Destroy(hit.collider.gameObject);
 		}
@@ -94,16 +110,16 @@ public class Player : MonoBehaviour {
 	{
 		GUI.Label(new Rect(10,10,140,40), string.Format("Budget: ${0}",m_currentBudget));
 
-		if(GUI.Button(new Rect(100,10,100,40), "End Game"))
+		if(GUI.Button(new Rect(100,10,100,40), "Reset Game"))
 		{
-			Debug.Log("HI");
+			Application.LoadLevel("GameScene");
 		}
 
 	}
 
 	private CharacterController m_controller;
 	private Vector3 m_moveDirection = Vector3.zero;
-	public const int DIG_COST = 10;
+	public int DIG_COST = 150;
 
 	public float m_speed = 4.0f;
 	public float m_gravity = 20.0f;
