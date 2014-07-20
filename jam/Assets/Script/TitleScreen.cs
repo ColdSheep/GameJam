@@ -20,7 +20,7 @@ public class TitleScreen : MonoBehaviour {
 			Application.LoadLevel("GameScene");
 		}
 
-		if(GUI.Button(new Rect(Screen.width/2-80,Screen.height/2+40,100,40),"Quit"))
+		if(GUI.Button(new Rect(Screen.width/2-80,Screen.height/2+45,100,40),"Quit"))
 		{
 			Application.Quit();
 		}

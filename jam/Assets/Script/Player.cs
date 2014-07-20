@@ -36,7 +36,7 @@ public class Player : MonoBehaviour {
 
 			RaycastHit hit = new RaycastHit();
 
-			if(Input.GetKeyDown(KeyCode.E))
+			if(Input.GetKeyDown(KeyCode.RightArrow))
 			{
 				Vector3 direction = new Vector3(1.0f,0.0f, 0.0f);
 
@@ -46,7 +46,7 @@ public class Player : MonoBehaviour {
 				}
 			}
 
-			if(Input.GetKeyDown(KeyCode.Q))
+			if(Input.GetKeyDown(KeyCode.LeftArrow))
 			{
 				Vector3 direction = new Vector3(-1.0f,0.0f, 0.0f);
 				
@@ -56,7 +56,7 @@ public class Player : MonoBehaviour {
 				}
 			}
 
-			if(Input.GetKeyDown(KeyCode.S))
+			if(Input.GetKeyDown(KeyCode.DownArrow))
 			{
 				Vector3 direction = new Vector3(0.0f,-1.0f, 0.0f);
 				
