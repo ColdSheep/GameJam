@@ -22,16 +22,6 @@ public class Tile: MonoBehaviour {
 
 		}
 
-
-//		if(IsFossil())
-//		{
-//			renderer.material.color = Color.green;
-//		}
-//	 	else if(IsTrap())
-//		{
-//			renderer.material.color = Color.red;
-//		}
-
 	}
 	
 	// Update is called once per frame

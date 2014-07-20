@@ -88,9 +88,13 @@ public class Player : MonoBehaviour {
 		return false;
 	}
 
+	void OnGUI()
+	{
+		GUI.Label(new Rect(10,10,140,40), string.Format("Budget: ${0}",m_currentBudget));
+	}
+
 	private CharacterController m_controller;
 	private Vector3 m_moveDirection = Vector3.zero;
-	public const int PLAYER_START_BUDGET = 10000;
 	public const int DIG_COST = 10;
 
 	public float m_speed = 4.0f;
