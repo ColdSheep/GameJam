@@ -68,7 +68,7 @@ public class Player : MonoBehaviour {
 		}
 		else
 		{
-			Application.LoadLevel("GameOverScreen");
+			EndGame();
 		}
 
 		m_moveDirection.y -= m_gravity * Time.deltaTime;
@@ -116,10 +116,24 @@ public class Player : MonoBehaviour {
 
 		GUI.Label(new Rect(10,10,140,40), string.Format("Budget: ${0}",m_currentBudget));
 
-		if(GUI.Button(new Rect(100,10,100,40), "Reset Game"))
+		if(GUI.Button(new Rect(100,10,100,40), "End Game"))
 		{
-			Application.LoadLevel("GameScene");
+			EndGame();
 		}
+	}
+
+	void EndGame()
+	{
+		GameObject infoSphere = GameObject.FindGameObjectWithTag("Respawn");
+		
+		if(infoSphere)
+		{
+			InfoSphere info = (InfoSphere)infoSphere.GetComponent("InfoSphere");
+			
+			info.m_finalScore = m_currentBudget;
+		}
+		
+		Application.LoadLevel("GameOverScreen");
 	}
 
 	private CharacterController m_controller;
