@@ -24,9 +24,9 @@ public class GameOverScreen : MonoBehaviour {
 	{
 		GUI.Label(new Rect(Screen.width/2-80,Screen.height/2,100,100), string.Format("Score: {0}", score));
 
-		if(GUI.Button(new Rect(Screen.width/2-80,Screen.height/2 + 40,100,60),"Restart"))
+		if(GUI.Button(new Rect(Screen.width/2-80,Screen.height/2 + 40,100,40),"Title Screen"))
 		{
-			Application.LoadLevel("GameScene");
+			Application.LoadLevel("TitleScreen");
 		}
 	}
 

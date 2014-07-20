@@ -119,7 +119,7 @@ public class Player : MonoBehaviour {
 
 		GUI.Label(new Rect(10,10,140,40), string.Format("Budget: ${0}",m_currentBudget));
 
-		if(GUI.Button(new Rect(100,10,100,40), "End Game"))
+		if(GUI.Button(new Rect(130,10,100,40), "End Game"))
 		{
 			EndGame();
 		}
