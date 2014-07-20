@@ -71,7 +71,8 @@ public class Player : MonoBehaviour {
 			Tile h = (Tile)hit.collider.gameObject.GetComponent("Tile");
 			m_currentBudget += h.TileValue;
 
-			Destroy(hit.collider.gameObject);
+			hit.collider.gameObject.transform.position = hit.collider.gameObject.transform.position + new Vector3(0,0,2.2f);
+			//Destroy(hit.collider.gameObject);
 		}
 	}
 

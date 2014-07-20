@@ -14,9 +14,9 @@ public class GameManager : MonoBehaviour {
 		Debug.Log(string.Format("Create grid with pergentages: Fossil - {0}, Trap - {1}, Empty - {2}", PERCENT_FOSSIL, PERCENT_TRAP, PERCENT_EMPTY));
 
 		GameObject playerQuad = (GameObject)Instantiate(Resources.Load("PlayerQuad"));
-		playerQuad.transform.position = new Vector3(x,y+3,z);
+		playerQuad.transform.position = new Vector3(x,y+3,z-1);
 
-		BuildGrid(10, 10, 2.0f);
+		BuildGrid(11, 11, 2.0f);
 	}
 
 	// Update is called once per frame
@@ -94,7 +94,7 @@ public class GameManager : MonoBehaviour {
 				}
 				else
 				{
-					Debug.LogError(string.Format("This tile has no associated script:{0},{1}", i, j));
+					//Debug.LogError(string.Format("This tile has no associated script:{0},{1}", i, j));
 				}
 				
 				aTile.transform.position = new Vector3(x,y,z);
