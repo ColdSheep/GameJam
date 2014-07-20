@@ -2,13 +2,14 @@
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Script/GameOverScreen.cs">
     <Files>
-      <File FileName="Assets/Script/Player.cs" Line="154" Column="1" />
-      <File FileName="Assets/Script/GameManager.cs" Line="1" Column="1" />
-      <File FileName="Assets/Script/Tile.cs" Line="1" Column="1" />
+      <File FileName="Assets/Script/Player.cs" Line="155" Column="1" />
+      <File FileName="Assets/Script/GameManager.cs" Line="29" Column="3" />
+      <File FileName="Assets/Script/Tile.cs" Line="86" Column="15" />
       <File FileName="Assets/Script/InfoSphere.cs" Line="1" Column="1" />
-      <File FileName="Assets/Script/GameOverScreen.cs" Line="29" Column="36" />
+      <File FileName="Assets/Script/GameOverScreen.cs" Line="27" Column="66" />
       <File FileName="Assets/Script/TitleScreen.cs" Line="23" Column="42" />
-      <File FileName="Assets/Script/Player.cs" Line="86" Column="17" />
+      <File FileName="Assets/Script/Player.cs" Line="100" Column="4" />
+      <File FileName="Assets/Script/MusicScript.cs" Line="8" Column="27" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

@@ -22,13 +22,13 @@ public class GameOverScreen : MonoBehaviour {
 
 	void OnGUI()
 	{
-		GUI.Label(new Rect(Screen.width/2-50,Screen.height/2,100,100), string.Format("Score: {0}", score));
+		GUI.Label(new Rect(Screen.width/2-50,Screen.height/4,100,100), string.Format("Score: {0}", score));
 
-		if(GUI.Button(new Rect(Screen.width/2-50,Screen.height/2 + 40,100,40),"Restart"))
+		if(GUI.Button(new Rect(Screen.width/2-50,Screen.height/2 + 50 + 40,100,40),"Restart"))
 		{
 			Application.LoadLevel("GameScene");
 		}
-		if(GUI.Button(new Rect(Screen.width/2-50,Screen.height/2 + 85,100,40),"Quit"))
+		if(GUI.Button(new Rect(Screen.width/2-50,Screen.height/2 + 50 + 85,100,40),"Quit"))
 		{
 			Application.Quit();
 		}
