@@ -86,6 +86,9 @@ public class Player : MonoBehaviour {
 			{
 				//Display that you recieved a fossil
 				hit.collider.gameObject.renderer.material.color = Color.green;
+
+				//Add to fossil found;
+				m_numFossilsFound++;
 			}
 			else if(h.TileValue < 0)
 			{
@@ -130,7 +133,7 @@ public class Player : MonoBehaviour {
 		{
 			InfoSphere info = (InfoSphere)infoSphere.GetComponent("InfoSphere");
 			
-			info.m_finalScore = m_currentBudget;
+			info.m_finalScore = m_numFossilsFound;
 		}
 		
 		Application.LoadLevel("GameOverScreen");
@@ -138,7 +141,8 @@ public class Player : MonoBehaviour {
 
 	private CharacterController m_controller;
 	private Vector3 m_moveDirection = Vector3.zero;
- 
+	private int m_numFossilsFound;
+
 	public int DIG_COST = 100;
 
 	public float m_speed = 4.0f;
