@@ -68,7 +68,7 @@ public class Player : MonoBehaviour {
 		}
 		else
 		{
-			renderer.enabled = false;
+			Application.LoadLevel("GameOverScreen");
 		}
 
 		m_moveDirection.y -= m_gravity * Time.deltaTime;
@@ -113,14 +113,8 @@ public class Player : MonoBehaviour {
 
 	void OnGUI()
 	{
-		if(IsGameOver())
-		{
 
-		}
-		else
-		{
-			GUI.Label(new Rect(10,10,140,40), string.Format("Budget: ${0}",m_currentBudget));
-		}
+		GUI.Label(new Rect(10,10,140,40), string.Format("Budget: ${0}",m_currentBudget));
 
 		if(GUI.Button(new Rect(100,10,100,40), "Reset Game"))
 		{
