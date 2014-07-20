@@ -25,6 +25,14 @@ public class GameManager : MonoBehaviour {
 	
 	}
 
+	void DestroyBoard()
+	{
+		foreach(Tile t in m_gameTiles)
+		{
+			Destroy(t.gameObject);
+		}
+	}
+
 	void BuildGrid(int width, int height, float tileSize)
 	{
 		Debug.Log ("Creating Grid");

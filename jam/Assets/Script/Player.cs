@@ -66,6 +66,10 @@ public class Player : MonoBehaviour {
 				}
 			}
 		}
+		else
+		{
+			renderer.enabled = false;
+		}
 
 		m_moveDirection.y -= m_gravity * Time.deltaTime;
 		m_controller.Move( m_moveDirection * Time.deltaTime );
