@@ -25,7 +25,7 @@ namespace jam
 
 				string t = "Instructions:\n You are an archaeologist looking for ancient dinosaur fossils- on a budget! Dig your way looking for the jurassic money makers by avoiding traps, which makes your budget smaller by medical bills to heal, and gaining the big dollars finding them bones! You do this by uncovering the blocks that contain fossils (Green Blocks) while avoiding the blocks that contain traps (Red Blocks).\n\n" +
 					       "The Blocks:\n On each dirt block there are two numbers. The top number in black is the number of fossils that are adjacent to the current block, The bottom number in white is the number of traps that are adjacent to the block.\n\n" +
-						   "End Game:\n The game is over when you either run out of money or choose to end the game by pressing the 'End Game' button in the upper left of the screen. The funal score is the number of fossils you revealed multiplied by 200 plus your ending fund balance.\n\n" +
+						   "End Game:\n The game is over when you either run out of money or choose to end the game by pressing the 'End Game' button in the upper left of the screen. The final score is the number of fossils you revealed multiplied by 200 plus your ending fund balance.\n\n" +
 						   "Controls:\n" +
 						   "'A' = Move Left\n" +
 						   "'D' = Move Right\n" +
