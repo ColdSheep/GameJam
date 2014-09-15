@@ -1,6 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+namespace jam
+{
+
 public class GameOverScreen : MonoBehaviour {
 
 	// Use this for initialization
@@ -28,11 +31,14 @@ public class GameOverScreen : MonoBehaviour {
 		{
 			Application.LoadLevel("GameScene");
 		}
-		if(GUI.Button(new Rect(Screen.width/2-50,Screen.height/2 + 50 + 85,100,40),"Quit"))
-		{
-			Application.Quit();
-		}
+		
+		//if(GUI.Button(new Rect(Screen.width/2-50,Screen.height/2 + 50 + 85,100,40),"Quit"))
+		//{
+		//	Application.Quit();
+		//}
 	}
 
 	public int score = 0;
+}
+
 }
